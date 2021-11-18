@@ -1,6 +1,6 @@
-package RestClients;
+package com.example.restclients;
 
-import Models.SenateMembers;
+import com.example.models.SenateMembers;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
