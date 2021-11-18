@@ -5,13 +5,13 @@
 ## Before Getting Started
 
 Our original idea for the project was to build an Alexa skill that would give daily briefings on bill dockets and
-results.  
-To do this we had to research not only how to build an Alexa skill, but also how to utilize a 3rd party API to retrieve
+results. To do this we had to research not only how to build an Alexa skill, but also how to utilize a 3rd party API to retrieve
 the information.  
+
 After reviewing a few sites we settled on ProPublica.org as they appear to be the main API source for other sites. We
-were able to aquire an API key.  
-Initial research in how to utilize a 3rd party API with a key was difficult as we were unable to get the site to accept
+were able to aquire an API key. Initial research in how to utilize a 3rd party API with a key was difficult as we were unable to get the site to accept
 the key.  
+
 We decided to build a test Alexa skill where we could get everything working with an open API key. We highly suggest reviewing this project to familiarize yourself with Amazon's Alexa Developer console and AWS Lambda tool. This is the link to our repository and additional ReadMe for this app.
 
 https://git.generalassemb.ly/matthompson/cat-facts-test
