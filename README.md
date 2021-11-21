@@ -17,10 +17,10 @@ We decided to build a test Alexa skill where we could get everything working wit
 https://git.generalassemb.ly/matthompson/cat-facts-test
 
 ## Technologies Used
-| __IntelliJ IDE__ | <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg" alt="IntelliJ IDE" width="150"/> | Postman | <img src="https://www.postman.com/assets/logos/postman-logo-stacked.svg" alt="Postman" width="150"/> | 
+| __IntelliJ IDE__ | <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg" alt="IntelliJ IDE" width="150"/> | __Java__ | <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/java-4-logo.png" alt="Java" width="150"/> | 
 | :------- | :-------: | :------- | :-----: |
-| __Alexa Skills Kit__ | <img src="https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-brand-guidelines-2021-refresh-/Alexa_Logo_RGB_BLUE.png" alt="Alexa Skills Kit" width="150"/> | __Amazon Web Services__ | <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked.547f032d90171cdea4dd90c258f47373c5573db5.png" alt="Amazon Web Services" width="150"/> |
-| __Microsoft Teams__ | <img src="https://www.marshall.edu/it/files/microsoft-team-2019-300x300.png" alt="Microsoft Teams" width="150"/> | 
+| __Alexa Skills Kit__ | <img src="https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-brand-guidelines-2021-refresh-/Alexa_Logo_RGB_BLUE.png" alt="Alexa Skills Kit" width="150"/> | __Amazon Web Services__ | <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked.547f032d90171cdea4dd90c258f47373c5573db5.png" alt="Amazon Web Services" width="150"/> 
+| __Microsoft Teams__ | <img src="https://www.marshall.edu/it/files/microsoft-team-2019-300x300.png" alt="Microsoft Teams" width="150"/> | __Postman__ | <img src="https://www.postman.com/assets/logos/postman-logo-stacked.svg" alt="Postman" width="150"/> |
 
 
 
