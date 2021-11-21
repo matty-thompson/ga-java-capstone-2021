@@ -41,5 +41,9 @@ This tutorial uses an API key that retrieves COVID data. We quickly realized we 
 ### Setup RestClient
 Talk about binding errors, used [SLF4J Multiple Binding Error](http://www.slf4j.org/codes.html#multiple_bindings) 
 
+>  
+
+    mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
+
 ### Resources
 • [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html)
