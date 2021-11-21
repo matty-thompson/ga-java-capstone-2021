@@ -25,7 +25,7 @@ public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetrie
     @Override
     public Optional<Response> handle(HandlerInput handlerInput) {
         return handlerInput.getResponseBuilder()
-                .withSpeech("MOST RECENT HEALTH")
+                .withSpeech(healthResponse)
                 .build();
     }
 
@@ -63,20 +63,18 @@ public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetrie
         JSONObject bills = createObject(getInfo);
         String shortTitle = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
         String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
-        return shortTitle + " " + shortSummary;
+        return shortTitle + ", " + shortSummary;
     }
 
+    String healthResponse;
 
-    public static void main(String[] args) {
-        MostRecentHealthIntentHandler mostRecentHealthIntentHandler = new MostRecentHealthIntentHandler();
+    {
         try {
-            System.out.println(mostRecentHealthIntentHandler.mostRecent());
+            healthResponse = mostRecent();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
 
 
 }
