@@ -24,9 +24,20 @@ public class MostRecentBillIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput handlerInput) {
-        return Optional.empty();
+        return handlerInput.getResponseBuilder()
+                .withSpeech("TEST")
+                .build();
     }
 
+    /* The following methods retrieve the most recent bill from ProPublica.
+        "retrieveProPublica": This is where we connect to ProPublica with our private API Key.
+             This method is repeated because every json file from each endpoint has to be manually cut down.
+             ***PLEASE NOTE*** The substring may need to be altered for the following methods to work.
+        "createObject": This converts the string of data to a JSON Object
+        "mostRecent": This isolates a specific bill and returns its information.
+    */
+
     
+
 
 }
