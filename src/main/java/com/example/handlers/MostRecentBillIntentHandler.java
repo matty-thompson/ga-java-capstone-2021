@@ -29,7 +29,7 @@ public class MostRecentBillIntentHandler implements RequestHandler, InfoRetrieve
 
     @Override
     public boolean canHandle(HandlerInput handlerInput) {
-        return handlerInput.matches(intentName("MostRecentBillIntent"));
+        return handlerInput.matches(intentName("BillIntent"));
     }
 
 

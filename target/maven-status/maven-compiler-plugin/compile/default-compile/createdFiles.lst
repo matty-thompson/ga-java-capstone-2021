@@ -1,2 +1,6 @@
 com/example/handlers/FarewellRequestHandler.class
+com/example/interfaces/InfoRetriever.class
 com/example/handlers/CongressWatchLaunchRequestHandler.class
+com/example/handlers/MostRecentBillIntentHandler.class
+com/example/handlers/MostRecentHealthIntentHandler.class
+com/example/handlers/CongressSkillStreamHandler.class
