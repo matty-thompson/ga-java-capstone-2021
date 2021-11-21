@@ -17,7 +17,8 @@ public class FarewellRequestHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput handlerInput) {
         return handlerInput.getResponseBuilder()
-                .withSpeech("Thank you so much for this opportunity, Tech Career Pathways. We hope we made you proud.")
+                .withSpeech("Thank you so much for this opportunity, Tech Career Pathways. Thank you Suresh, " +
+                        "Dhrubo, and everyone at General Assembly for your support. We hope we made you proud.")
                 .build();
     }
 }

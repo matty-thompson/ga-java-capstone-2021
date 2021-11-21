@@ -11,8 +11,8 @@ import java.util.Optional;
 import static com.amazon.ask.request.Predicates.requestType;
 import static org.slf4j.LoggerFactory.getLogger;
 
-public class CustomLaunchRequestHandler implements LaunchRequestHandler {
-    private static Logger logger = getLogger(CustomLaunchRequestHandler.class);
+public class CongressWatchLaunchRequestHandler implements LaunchRequestHandler {
+    private static Logger logger = getLogger(CongressWatchLaunchRequestHandler.class);
 
     @Override
     public boolean canHandle(HandlerInput input, LaunchRequest launchRequest) {

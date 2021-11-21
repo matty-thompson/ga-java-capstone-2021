@@ -7,6 +7,9 @@ public class CongressSkillStreamHandler extends SkillStreamHandler {
 
     public CongressSkillStreamHandler(){
         super(Skills.standard()
+                .addRequestHandler(new MostRecentBillIntentHandler())
+                .addRequestHandler(new CongressWatchLaunchRequestHandler())
+                .addRequestHandler(new FarewellRequestHandler())
                 .build());
     }
 

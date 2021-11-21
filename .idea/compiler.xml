@@ -9,6 +9,7 @@
         <module name="project" />
         <module name="amazon-alexa-maven" />
         <module name="president-bills" />
+        <module name="capstone-pypl" />
       </profile>
     </annotationProcessing>
   </component>
