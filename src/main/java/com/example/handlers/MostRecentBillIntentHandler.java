@@ -35,7 +35,7 @@ public class MostRecentBillIntentHandler implements RequestHandler {
     @Override
     public Optional<Response> handle(HandlerInput handlerInput) {
         return handlerInput.getResponseBuilder()
-                .withSpeech("TEST")
+                .withSpeech(response)
                 .build();
     }
 
@@ -49,7 +49,7 @@ public class MostRecentBillIntentHandler implements RequestHandler {
 
     public static String getProPublica() throws IOException {
 
-        URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=megahertz");
+        URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=recent");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestProperty("X-API-Key", "O1ZdWmc8x27g8x05YHkc0VYKHfCBYTTTuvDAt4Kn");
@@ -64,7 +64,7 @@ public class MostRecentBillIntentHandler implements RequestHandler {
         }
         in.close();
 
-        String billResults = stringBuilder.substring(112, 57840);
+        String billResults = stringBuilder.substring(112, 50700);
 
         return billResults;
     }
@@ -80,6 +80,16 @@ public class MostRecentBillIntentHandler implements RequestHandler {
         String title = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
         String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
         return title + " " + shortSummary;
+    }
+
+    String response;
+
+    {
+        try {
+            response = mostRecent();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
