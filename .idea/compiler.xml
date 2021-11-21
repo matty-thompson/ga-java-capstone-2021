@@ -7,10 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project" />
+        <module name="CongressWatch" />
         <module name="amazon-alexa-maven" />
         <module name="president-bills" />
         <module name="capstone-pypl" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CongressWatch" options="" />
+    </option>
   </component>
 </project>
