@@ -19,7 +19,7 @@ import static com.amazon.ask.request.Predicates.intentName;
 public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetriever {
     @Override
     public boolean canHandle(HandlerInput handlerInput) {
-        return handlerInput.matches(intentName("MostRecentHealthIntent"));
+        return handlerInput.matches(intentName("HealthIntent"));
     }
 
     @Override
