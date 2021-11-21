@@ -1,12 +1,2 @@
-com/example/controller/FactController.class
-com/example/Feed.class
-com/example/handlers/CustomLaunchRequestHandler.class
-com/example/service/OpenAPIService.class
-com/example/FeedMessage.class
 com/example/handlers/FarewellRequestHandler.class
-com/example/handlers/WelcomeRequestHandler.class
-com/example/handlers/CatFactRequestHandler.class
-com/example/CatFact.class
-com/example/RSSFeedParser.class
-com/example/handlers/SimpleAlexaSkillStreamHandler.class
-com/example/handlers/ProPublicaHandler.class
+com/example/handlers/CongressWatchLaunchRequestHandler.class
