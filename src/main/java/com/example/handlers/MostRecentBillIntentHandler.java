@@ -7,6 +7,7 @@ package com.example.handlers;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
+import com.example.interfaces.InfoRetriever;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,7 +20,7 @@ import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class MostRecentBillIntentHandler implements RequestHandler {
+public class MostRecentBillIntentHandler implements RequestHandler, InfoRetriever {
 
     /* The following two methods are standard for different Alexa Intents.
     The "canHandle" method determines the specific intent Alexa will look for.
@@ -39,15 +40,9 @@ public class MostRecentBillIntentHandler implements RequestHandler {
                 .build();
     }
 
-    /* The following methods retrieve the most recent bill from ProPublica.
-        "getProPublica": This is where we connect to ProPublica with our private API Key.
-             This method is repeated because every json file from each endpoint has to be manually cut down.
-             ***PLEASE NOTE*** The substring may need to be altered for the following methods to work.
-        "createObject": This converts the string of data to a JSON Object
-        "mostRecent": This isolates a specific bill and returns its information.
-    */
 
-    public static String getProPublica() throws IOException {
+    @Override
+    public String getProPublica() throws IOException {
 
         URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=recent");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -69,11 +64,13 @@ public class MostRecentBillIntentHandler implements RequestHandler {
         return billResults;
     }
 
-    public static JSONObject createObject(String text) throws IOException, JSONException {
+    @Override
+    public JSONObject createObject(String text) throws IOException, JSONException {
         return new JSONObject(text);
     }
 
-    public static String mostRecent() throws IOException, JSONException {
+    @Override
+    public String mostRecent() throws IOException, JSONException {
 
         String getInfo = getProPublica();
         JSONObject bills = createObject(getInfo);
@@ -81,6 +78,10 @@ public class MostRecentBillIntentHandler implements RequestHandler {
         String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
         return title + " " + shortSummary;
     }
+
+
+    // This response builds everything together.
+    // It must be put through a try/catch statement to catch IOExceptions
 
     String response;
 
