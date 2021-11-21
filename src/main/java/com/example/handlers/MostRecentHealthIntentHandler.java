@@ -1,9 +1,5 @@
 package com.example.handlers;
 
-/* This handler brings the most recent bill sent to the President from Congress.
-   It uses a private API Key from ProPublica.org to retrieve the information.
- */
-
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
@@ -20,31 +16,22 @@ import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class MostRecentBillIntentHandler implements RequestHandler, InfoRetriever {
-
-    /* The following two methods are standard for different Alexa Intents.
-    The "canHandle" method determines the specific intent Alexa will look for.
-    The "handle" method is where you provide Alexa with what you want it to say.
-     */
-
+public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetriever {
     @Override
     public boolean canHandle(HandlerInput handlerInput) {
-        return handlerInput.matches(intentName("MostRecentBillIntent"));
+        return handlerInput.matches(intentName("MostRecentHealthIntent"));
     }
-
 
     @Override
     public Optional<Response> handle(HandlerInput handlerInput) {
         return handlerInput.getResponseBuilder()
-                .withSpeech(response)
+                .withSpeech(healthResponse)
                 .build();
     }
 
-
     @Override
     public String getProPublica() throws IOException {
-
-        URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=recent");
+        URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=health");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestProperty("X-API-Key", "O1ZdWmc8x27g8x05YHkc0VYKHfCBYTTTuvDAt4Kn");
@@ -59,19 +46,19 @@ public class MostRecentBillIntentHandler implements RequestHandler, InfoRetrieve
         }
         in.close();
 
-        String billResults = stringBuilder.substring(112, 50700);
+    // ***Test the following to adjust the file into proper json format***
+        String healthResults = stringBuilder.substring(107, 50183);
 
-        return billResults;
+        return healthResults;
     }
 
     @Override
     public JSONObject createObject(String text) throws IOException, JSONException {
-        return new JSONObject(text);
+        return new JSONObject (text);
     }
 
     @Override
     public String mostRecent() throws IOException, JSONException {
-
         String getInfo = getProPublica();
         JSONObject bills = createObject(getInfo);
         String shortTitle = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
@@ -79,18 +66,15 @@ public class MostRecentBillIntentHandler implements RequestHandler, InfoRetrieve
         return shortTitle + ", " + shortSummary;
     }
 
-
-    // This response builds everything together.
-    // It must be put through a try/catch statement to catch IOExceptions
-
-    String response;
+    String healthResponse;
 
     {
         try {
-            response = mostRecent();
+            healthResponse = mostRecent();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 }
