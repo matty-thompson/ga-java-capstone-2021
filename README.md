@@ -29,7 +29,7 @@ https://git.generalassemb.ly/matthompson/cat-facts-test
 ## ERD Diagram
 
 ## Getting Started
-• Create Project using Java. Then, add Spring Web, Rest, and Spring DevTools to dependencies. We are using maven for this project. __We did not utilize SpringInitializer because it would cause errors when compiling our .jar file.__
+• Create Project using Java. Then, add Spring Web, Rest, and Spring DevTools to dependencies. We are using maven for this project. __We did not utilize SpringInitializer because it would cause errors when compiling our .jar file.__  
 • We set up our API information in the application.properties folder. We decided to focus on retrieving only one piece of information from ProPublica, as we can replicate successful code easily. This is our steps from start to finish for one piece of information. 
 
 ### Setup the API Credentials
