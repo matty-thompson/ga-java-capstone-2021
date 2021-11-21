@@ -33,7 +33,7 @@ https://git.generalassemb.ly/matthompson/cat-facts-test
 • We set up our API information in the application.properties folder. We decided to focus on retrieving only one piece of information from ProPublica, as we can replicate successful code easily. This is our steps from start to finish for one piece of information. 
 
 ### Setup the API Credentials
-We used a tutorial on RapidAPI's website called [How To Use an API with Spring RestTemplate](https://rapidapi.com/blog/how-to-use-an-api-with-spring-resttemplate/) to begin our project. 
+We first used a tutorial on RapidAPI's website called [How To Use an API with Spring RestTemplate](https://rapidapi.com/blog/how-to-use-an-api-with-spring-resttemplate/) to begin our project. __This did not work, and we researched additional ways to pass our API Key.__  
 
 This tutorial uses an API key that retrieves COVID data. We quickly realized we would have to create a RestClient class for each request we plan in making to the API. We decided to request Senate Member data as our first run through. Our plan was to direct Alexa to retrieve a single fact about a Senator as a base test. Then, we can go and customize the information we want to return. 
 
