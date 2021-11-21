@@ -7,6 +7,9 @@ package com.example.handlers;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static com.amazon.ask.request.Predicates.intentName;
 
 import java.io.BufferedReader;
@@ -37,14 +40,14 @@ public class MostRecentBillIntentHandler implements RequestHandler {
     }
 
     /* The following methods retrieve the most recent bill from ProPublica.
-        "retrieveProPublica": This is where we connect to ProPublica with our private API Key.
+        "getProPublica": This is where we connect to ProPublica with our private API Key.
              This method is repeated because every json file from each endpoint has to be manually cut down.
              ***PLEASE NOTE*** The substring may need to be altered for the following methods to work.
         "createObject": This converts the string of data to a JSON Object
         "mostRecent": This isolates a specific bill and returns its information.
     */
 
-    public static String retrieveProPublica() throws IOException {
+    public static String getProPublica() throws IOException {
 
         URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=megahertz");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -60,12 +63,23 @@ public class MostRecentBillIntentHandler implements RequestHandler {
             stringBuilder.append(output);
         }
         in.close();
-        
-        String billResults = stringBuilder.substring(112, 57840);
 
+        String billResults = stringBuilder.substring(112, 57840);
 
         return billResults;
     }
 
+    public static JSONObject createObject(String text) throws IOException, JSONException {
+        return new JSONObject(text);
+    }
+
+    public static String mostRecent() throws IOException, JSONException {
+
+        String getInfo = getProPublica();
+        JSONObject bills = createObject(getInfo);
+        String title = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
+        String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
+        return title + " " + shortSummary;
+    }
 
 }
