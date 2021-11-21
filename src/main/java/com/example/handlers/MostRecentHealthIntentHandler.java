@@ -54,19 +54,23 @@ public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetrie
 
     @Override
     public JSONObject createObject(String text) throws IOException, JSONException {
-        return null;
+        return new JSONObject (text);
     }
 
     @Override
     public String mostRecent() throws IOException, JSONException {
-        return null;
+        String getInfo = getProPublica();
+        JSONObject bills = createObject(getInfo);
+        String shortTitle = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
+        String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
+        return shortTitle + " " + shortSummary;
     }
 
 
     public static void main(String[] args) {
         MostRecentHealthIntentHandler mostRecentHealthIntentHandler = new MostRecentHealthIntentHandler();
         try {
-            System.out.println(mostRecentHealthIntentHandler.getProPublica());
+            System.out.println(mostRecentHealthIntentHandler.mostRecent());
         } catch (IOException e) {
             e.printStackTrace();
         }

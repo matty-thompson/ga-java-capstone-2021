@@ -74,9 +74,9 @@ public class MostRecentBillIntentHandler implements RequestHandler, InfoRetrieve
 
         String getInfo = getProPublica();
         JSONObject bills = createObject(getInfo);
-        String title = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
+        String shortTitle = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
         String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
-        return title + " " + shortSummary;
+        return shortTitle + " " + shortSummary;
     }
 
 
