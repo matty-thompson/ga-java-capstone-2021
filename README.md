@@ -43,7 +43,8 @@ https://git.generalassemb.ly/matthompson/cat-facts-test
     Alexa: Your representatives in the Senate/House of Representatives voted “for/against” bill “ “. 
     
     User: Hey Alexa, what is the Covid status of the members of Congress.  
-    Alexa:  On 3/9/20, Rep. Julia Brownley (CA-26) came in contact with someone who tested positive. They self-quarantined until 3/18/2020, DC office to  q  telework. 
+    Alexa:  On 3/9/20, Rep. Julia Brownley (CA-26) came in contact with someone who tested positive. 
+    They self-quarantined until 3/18/2020, DC office to  q  telework. 
     
     User: Hey Alexa, who are the representatives of “state” 
     Alexa: The representatives of “state” are “ ” 
