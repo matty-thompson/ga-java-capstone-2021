@@ -27,7 +27,9 @@ https://git.generalassemb.ly/matthompson/cat-facts-test
 
 ## User Stories
 
-## ERD Diagram
+## ERD
+
+![Congress Watch ERD](https://git.generalassemb.ly/matthompson/paypal-java-capstone-project/blob/master/Photos/paypal-java-capstone-project.png)
 
 ## Getting Started
 • Create Project using Java. Then, add Spring Web, Rest, and Spring DevTools to dependencies. We are using maven for this project. __We did not utilize SpringInitializer because it would cause errors when compiling our .jar file.__  
