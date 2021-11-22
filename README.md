@@ -139,7 +139,8 @@ It is important to build out getProPublica() first because it allows you to prin
 <details><summary>Here is our getProPublica() method broken down:</summary>
     
 <p>
-        
+    
+    @Override    
     String getProPublica() throws IOException {
     URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=");
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -165,14 +166,79 @@ It is important to build out getProPublica() first because it allows you to prin
 </p>
 </details>
 
+Next, we created a method to instantiate the edited json text into a JSONObject
+
+        @Override
+        JSONObject createObject(String text) throws IOException, JSONException{
+        return new JSONObject(text);
+        }
+    
+Our last method, __mostRecent()__ brings it all together for Alexa. This method utilizes the beforementioned methods to construct a response Alexa can recognize and deliver. We identified different keys in each bill object and converted their values to String. We pass these through Alexa's built in methods that need to implement and override.
+
+<details><summary>Here is how we parsed the json data:</summary>
+<p>
+    
+        @Override
+        public String mostRecent() throws IOException, JSONException {
+
+        String getInfo = getProPublica();
+        JSONObject bills = createObject(getInfo);
+        String shortTitle = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
+        String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
+        String latestMajorActionDate = (String) bills.getJSONArray("bills").getJSONObject(0)
+                .get("latest_major_action_date");
+        String latestMajorAction = (String) bills.getJSONArray("bills").getJSONObject(0)
+                .get("latest_major_action");
+        return shortTitle + ", " + shortSummary + ", " + latestMajorActionDate + ", " + latestMajorAction;
+    }
+    
+</p>
+</details>
+
+Now, we can attribute mostRecent()'s value into a String which Alexa will recognize and output. It is important to pay attention to the Intent name you provide in your code, as it must match in the Alexa Skill Developer console.
+
+<details><summary>Here is our code to prepare and send it to Alexa:</summary>
+Each response needs to be sent through an IOException because the Lambda function will not work correctly if you do not catch it.
+<p>
+    
+        String response;
+
+    {
+        try {
+            response = mostRecent();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+</p>
+Here we declare the intent as BillIntent and pass the response through Alexa Skills Kit's handle method:
+<p>
+    
+        @Override
+    public boolean canHandle(HandlerInput handlerInput) {
+        return handlerInput.matches(intentName("BillIntent"));
+    }
+
+
+    @Override
+    public Optional<Response> handle(HandlerInput handlerInput) {
+        return handlerInput.getResponseBuilder()
+                .withSpeech(response)
+                .build();
+    }
+</p>
+</details>
+
+Lastly, let's compile our .jar file to upload into Lambda!
+
     mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
-
-
-
+    
+Please refer to the [Build an Alexa Skill and Lambda Function](https://git.generalassemb.ly/matthompson/cat-facts-test#build-an-alexa-skill-and-lambda-function) section in our Cat Facts Repository for screenshots and explanations on how to get Alexa how to speak your code!
 
 ### What's Next:
 There is still some additional coding that would need to be done before releasing this project to the public. We would need to refactor the code in order to hide our API. We would also like to troubleshoot the issues we had with Spring so we could simplify our code and utilize endpoints in a more efficient manner. This would also allow us to remove repeated code that was done out of necessity in order to work around compiling issues. Additionally, we would like to build a method to allow the user to search for more specific information. We hope to build a feature for users to call their specific representatives as the office phone numbers are publicly available in the data we pulled.  
 
 ### Resources
+[ProPublica](propublica.org) - This project would not be possible without receiving a private API key from ProPublica. 
 Udemy: [The Ultimate AWS Alexa Skill Builder Course](https://www.udemy.com/course/ultimate-aws-certified-alexa-skill-builder-specialty/)  
 [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html)
