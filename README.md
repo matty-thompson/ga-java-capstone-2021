@@ -27,69 +27,53 @@ https://git.generalassemb.ly/matthompson/cat-facts-test
 
 ## User Stories  
 
-User: Hey Alexa, I would like to know the status of today’s bills in the Senate/House of Representatives.  
+    User: Hey Alexa, I would like to know the status of today’s bills in the Senate/House of Representatives.  
+    Alexa: “Congress is not in session today/Here are today’s pending bills/Here are the results of today’s votes. 
 
-Alexa: “Congress is not in session today/Here are today’s pending bills/Here are the results of today’s votes. 
+    User: Hey Alexa, what is today’s bill schedule? 
+    Alexa: “The Senate/House of Representatives is not in session today/Here are the bills tabled for votes:” 
 
-User: Hey Alexa, what is today’s bill schedule? 
+    User: Hey Alexa, how did my representatives/senators vote on bill “ “? 
+    Alexa: Your representatives/senators “Name stated and then vote result.” 
 
-Alexa: “The Senate/House of Representatives is not in session today/Here are the bills tabled for votes:” 
+    User: Hey Alexa, please describe bill “ ”. 
+    Alexa: Bill “ “ regards “ “. 
 
-User: Hey Alexa, how did my representatives/senators vote on bill “ “? 
+    User: Hey Alexa, how did my representatives vote today? 
+    Alexa: Your representatives in the Senate/House of Representatives voted “for/against” bill “ “. 
+    
+    User: Hey Alexa, what is the Covid status of the members of Congress.  
+    Alexa:  On 3/9/20, Rep. Julia Brownley (CA-26) came in contact with someone who tested positive. They self-quarantined until 3/18/2020, DC office to  q  telework. 
+    
+    User: Hey Alexa, who are the representatives of “state” 
+    Alexa: The representatives of “state” are “ ” 
+    
+    User: Hey Alexa, who are the representatives of my state 
+    Alexa: The representatives of your state are “ “ 
+    
+    User: Hey Alexa, call my Senator 
+    Alexa: Calling “ “ 
+    
+    User: Hey Alexa, call my representative 
+    Alexa: Calling “ “ 
+    
+    User: Hey Alexa, what is the most recent bill regarding healthcare 
+    Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
 
-Alexa: Your representatives/senators “Name stated and then vote result.” 
+    User: Hey Alexa, what is the most recent bill regarding the environment 
+    Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
 
-User: Hey Alexa, please describe bill “ ”. 
+    User: Hey Alexa, what is the most recent bill regarding the military 
+    Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
 
-Alexa: Bill “ “ regards “ “. 
+    User: Hey Alexa, what is the most recent bill  
+    Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
 
-User: Hey Alexa, how did my representatives vote today? 
+    User: Hey Alexa, who is the most recent confirmed nominee 
+    Alexa: “(name)” was confirmed for “(position)” on “(date)” 
 
-Alexa: Your representatives in the Senate/House of Representatives voted “for/against” bill “ “. 
-
-User: Hey Alexa, what is the Covid status of the members of Congress.  
-
-Alexa:  On 3/9/20, Rep. Julia Brownley (CA-26) came in contact with someone who tested positive. They self-quarantined until 3/18/2020, DC office to telework. 
-
-User: Hey Alexa, who are the representatives of “state” 
-
-Alexa: The representatives of “state” are “ ” 
-
-User: Hey Alexa, who are the representatives of my state 
-
-Alexa: The representatives of your state are “ “ 
-
-User: Hey Alexa, call my Senator 
-
-Alexa: Calling “ “ 
-
-User: Hey Alexa, call my representative 
-
-Alexa: Calling “ “ 
-
-User: Hey Alexa, what is the most recent bill regarding healthcare 
-
-Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
-
-User: Hey Alexa, what is the most recent bill regarding the environment 
-
-Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
-
-User: Hey Alexa, what is the most recent bill regarding the military 
-
-Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
-
-User: Hey Alexa, what is the most recent bill  
-
-Alexa: Bill “ “ regarding “ “ was signed into law on “ “ 
-
-User: Hey Alexa, who is the most recent confirmed nominee 
-
-Alexa: “(name)” was confirmed for “(position)” on “(date)” 
-
-User: Hey Alexa, who is the most recent withdrawn nominee 
-
-Alexa: “nomination description” was withdrawn “description” on “date”  
+    User: Hey Alexa, who is the most recent withdrawn nominee 
+    Alexa: “nomination description” was withdrawn “description” on “date”  
 
 ## ERD
 
