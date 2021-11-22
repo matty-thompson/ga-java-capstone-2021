@@ -1,7 +1,6 @@
 # paypal-java-capstone-project
 
 # Alexa Skill: CongressWatch
-_Brought to you by ProPublica.org - thanks for the API Key!_  
 
 ## Before Getting Started
 
