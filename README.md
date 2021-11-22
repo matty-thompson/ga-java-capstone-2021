@@ -96,20 +96,23 @@ Alexa: “nomination description” was withdrawn “description” on “date�
 ![Congress Watch ERD](https://git.generalassemb.ly/matthompson/paypal-java-capstone-project/blob/master/Photos/paypal-java-capstone-project.png)
 
 ## Getting Started
-• Create Project using Java. Then, add Spring Web, Rest, and Spring DevTools to dependencies. We are using maven for this project. __We did not utilize SpringInitializer because it would cause errors when compiling our .jar file.__  
-• We set up our API information in the application.properties folder. We decided to focus on retrieving only one piece of information from ProPublica, as we can replicate successful code easily. This is our steps from start to finish for one piece of information. 
+We created the project as a Java based application. We wanted to use SpringBoot but __did not utilize SpringInitializer because it would cause errors when compiling our .jar file.__  
+We had set up our API information in the application.properties folder. We first used a tutorial on RapidAPI's website called [How To Use an API with Spring RestTemplate](https://rapidapi.com/blog/how-to-use-an-api-with-spring-resttemplate/) to begin our project. This tutorial uses an API key that retrieves COVID data. We quickly realized we would have to create a RestClient class for each request we plan in making to the API. We decided to request Senate Member data as our first run through. Our plan was to direct Alexa to retrieve a single fact about a Senator as a base test. Then, we can go and customize the information we want to return. 
 
-### Setup the API Credentials
-We first used a tutorial on RapidAPI's website called [How To Use an API with Spring RestTemplate](https://rapidapi.com/blog/how-to-use-an-api-with-spring-resttemplate/) to begin our project. __This did not work, and we researched additional ways to pass our API Key.__  
+__This did not work, and we researched additional ways to pass our API Key.__ We also experienced binding errors while using the RestTemplate. We were able to troubleshoot by using the documentation on: [SLF4J Multiple Binding Error](http://www.slf4j.org/codes.html#multiple_bindings)
 
-This tutorial uses an API key that retrieves COVID data. We quickly realized we would have to create a RestClient class for each request we plan in making to the API. We decided to request Senate Member data as our first run through. Our plan was to direct Alexa to retrieve a single fact about a Senator as a base test. Then, we can go and customize the information we want to return. 
+We decided to focus on retrieving only one piece of information from ProPublica, as we can replicate successful code easily. This is our steps from start to finish for one piece of information. 
 
-### Setup RestClient
-Talk about binding errors, used [SLF4J Multiple Binding Error](http://www.slf4j.org/codes.html#multiple_bindings) 
 
->  
+
+
+ 
+
+
 
     mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
 
 ### Resources
-• [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html)
+• We completed the [The Ultimate AWS Alexa Skill Builder Course](https://www.udemy.com/course/ultimate-aws-certified-alexa-skill-builder-specialty/) on Udemy to help us prepare.  
+
+• The [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html) helped us understand how to retrieve data from RSS feeds. We learned how to convert an XML document into a JSON file to pass to Alexa. Unfortunately, our requests overloaded [Congress.gov's RSS feeds](congress.gov/rss).  
