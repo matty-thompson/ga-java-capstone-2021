@@ -13,6 +13,7 @@ public class CongressSkillStreamHandler extends SkillStreamHandler {
                 .addRequestHandler(new MostRecentHealthIntentHandler())
                 .addRequestHandler(new MostRecentMilitaryIntentHandler())
                 .addRequestHandler(new MostRecentConfirmedNomineeIntentHandler())
+                .addRequestHandler(new WithdrawnNomineeIntentHandler())
                 .build());
     }
 
