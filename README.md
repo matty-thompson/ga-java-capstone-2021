@@ -126,11 +126,44 @@ LaunchRequestHandler is a built in Alexa Intent that can be customized to return
 </p>
 </details>
 
+Each IntentHandler we created relies on two interfaces. One is RequestHandler from Amazon's ASK SDK Library. The second is one we created called __InfoRetriever__ which is used to pull the information from [ProPublica](propublica.org). We will break down each method in the order we build them.
 
+First, we built out the method __getProPublica()__. We realized we could not use the exact same code for this method because each endpoint from ProPublica had to be edited. The reason being JSONParser and related methods in Java's libraries have been deprecated. We originally had issues parsing through the json file because it had so many nested objects and arrays. 
 
+We decided to pivot and try gathering data from an RSS feed to send through Alexa. The [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html) helped us understand how to retrieve data from RSS feeds. We learned how to convert an XML document into a JSON file to pass to Alexa. Our code was functional, but we continued to receive errors. We utilized the logs in AWS's CloudWatch management to identify the specific reason our output was incorrect. Unfortunately, our requests overloaded [Congress.gov's RSS feeds](congress.gov/rss) identified by the 503 HTTP return error:  Service Unavailable: The code worked in our IDEs, but not as a whole. 
 
-The [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html) helped us understand how to retrieve data from RSS feeds. We learned how to convert an XML document into a JSON file to pass to Alexa. Unfortunately, our requests overloaded [Congress.gov's RSS feeds](congress.gov/rss). 
+We utilized the substring method to edit the RSS XML document to make it easier to convert. We realized we could use the same technique to simplify the previously retrieved json files from ProPublica.
 
+It is important to build out getProPublica() first because it allows you to print to the console the json file you are retrieving. Later on in the method, we remove any extraneous json objects/arrays that complicate parsing through the file by using substring.
+
+<details><summary>Here is our getProPublica() method broken down:</summary>
+    
+<p>
+        
+    String getProPublica() throws IOException {
+    URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=");
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+        conn.setRequestProperty("X-API-Key", "<INSERT API KEY>");
+        conn.setRequestProperty("Content-Type", "application/json");
+    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+    String output;
+
+    StringBuilder stringBuilder = new StringBuilder();
+        while ((output = in.readLine()) != null) {
+        stringBuilder.append(output);
+    }
+        in.close();
+
+    ***Test the following to adjust the file into proper json format***
+    String billResults = stringBuilder.substring(<int>, <int>);
+
+        return billResults;
+    }
+    
+</p>
+</details>
 
     mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
 
