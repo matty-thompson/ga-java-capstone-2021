@@ -76,6 +76,7 @@ We highly encourage taking Udemy's [The Ultimate AWS Alexa Skill Builder Course]
     User: Hey Alexa, who is the most recent withdrawn nominee 
     Alexa: “nomination description” was withdrawn “description” on “date”  
 
+
 ## ERD
 
 ![Congress Watch ERD](https://git.generalassemb.ly/matthompson/paypal-java-capstone-project/blob/master/Photos/paypal-java-capstone-project.png)
@@ -88,8 +89,47 @@ __This did not work, and we researched additional ways to pass our API Key.__ We
 
 We decided to focus on retrieving only one piece of information from ProPublica, as we can easily replicate successful code. These are our steps from start to finish for one piece of information. 
  
+### SkillStreamHandler
+The SkillStreamHandler abstract class represents the Lambda function in Amazon Web Services. This class is fairly straight forward, as the Alexa Skill intents are added to this stream.
 
-The  helped us understand how to retrieve data from RSS feeds. We learned how to convert an XML document into a JSON file to pass to Alexa. Unfortunately, our requests overloaded [Congress.gov's RSS feeds](congress.gov/rss). 
+<details><summary>The following is an example of our CongressSkillStreamHandler and a custom LaunchRequestHandler:</summary>
+<p>
+    
+    public class CongressSkillStreamHandler extends SkillStreamHandler {
+
+    public CongressSkillStreamHandler(){
+        super(Skills.standard()
+                .addRequestHandler(new CongressWatchLaunchRequestHandler())
+                .build());
+        }
+    }
+</p>
+LaunchRequestHandler is a built in Alexa Intent that can be customized to return a unique response for your skill to let the user know it is functional.
+<p>
+    
+    public class CongressWatchLaunchRequestHandler implements LaunchRequestHandler {
+    private static Logger logger = getLogger(CongressWatchLaunchRequestHandler.class);
+
+    @Override
+    public boolean canHandle(HandlerInput input, LaunchRequest launchRequest) {
+        return input.matches(requestType(LaunchRequest.class));
+    }
+
+    @Override
+    public Optional<Response> handle(HandlerInput input, LaunchRequest launchRequest) {
+        logger.info("Received unrecognized request: " + input.getRequestEnvelopeJson());
+        return input.getResponseBuilder()
+                .withSpeech("Welcome to Congress Watch")
+                .build();
+        }
+    }
+</p>
+</details>
+
+
+
+
+The [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html) helped us understand how to retrieve data from RSS feeds. We learned how to convert an XML document into a JSON file to pass to Alexa. Unfortunately, our requests overloaded [Congress.gov's RSS feeds](congress.gov/rss). 
 
 
     mvn assembly:assembly -DdescriptorId=jar-with-dependencies package
