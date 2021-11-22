@@ -101,5 +101,5 @@ The  helped us understand how to retrieve data from RSS feeds. We learned how to
 There is still some additional coding that would need to be done before releasing this project to the public. We would need to refactor the code in order to hide our API. We would also like to troubleshoot the issues we had with Spring so we could simplify our code and utilize endpoints in a more efficient manner. This would also allow us to remove repeated code that was done out of necessity in order to work around compiling issues. Additionally, we would like to build a method to allow the user to search for more specific information. We hope to build a feature for users to call their specific representatives as the office phone numbers are publicly available in the data we pulled.  
 
 ### Resources
-Udemy: [The Ultimate AWS Alexa Skill Builder Course](https://www.udemy.com/course/ultimate-aws-certified-alexa-skill-builder-specialty/)
+Udemy: [The Ultimate AWS Alexa Skill Builder Course](https://www.udemy.com/course/ultimate-aws-certified-alexa-skill-builder-specialty/)  
 [RSS feeds with Java - Tutorial](https://www.vogella.com/tutorials/RSSFeed/article.html)
