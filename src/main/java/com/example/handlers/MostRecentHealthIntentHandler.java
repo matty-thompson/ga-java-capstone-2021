@@ -63,7 +63,11 @@ public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetrie
         JSONObject bills = createObject(getInfo);
         String shortTitle = (String) bills.getJSONArray("bills").getJSONObject(0).get("short_title");
         String shortSummary = (String) bills.getJSONArray("bills").getJSONObject(0).get("summary_short");
-        return shortTitle + ", " + shortSummary;
+        String latestMajorActionDate = (String) bills.getJSONArray("bills").getJSONObject(0)
+                .get("latest_major_action_date");
+        String latestMajorAction = (String) bills.getJSONArray("bills").getJSONObject(0)
+                .get("latest_major_action");
+        return shortTitle + ", " + shortSummary + ", " + latestMajorActionDate + ", " + latestMajorAction;
     }
 
     String healthResponse;
