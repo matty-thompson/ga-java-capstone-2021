@@ -77,4 +77,5 @@ public class MostRecentConfirmedNomineeIntentHandler implements RequestHandler, 
             e.printStackTrace();
         }
     }
+
 }

@@ -77,5 +77,6 @@ public class WithdrawnNomineeIntentHandler implements RequestHandler, InfoRetrie
             e.printStackTrace();
         }
     }
+
 }
 
