@@ -47,14 +47,14 @@ public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetrie
         in.close();
 
     // ***Test the following to adjust the file into proper json format***
-        String healthResults = stringBuilder.substring(107, 50183);
+        String healthResults = stringBuilder.substring(107, 50204);
 
         return healthResults;
     }
 
     @Override
     public JSONObject createObject(String text) throws IOException, JSONException {
-        return new JSONObject (text);
+        return new JSONObject(text);
     }
 
     @Override
@@ -79,6 +79,5 @@ public class MostRecentHealthIntentHandler implements RequestHandler, InfoRetrie
             e.printStackTrace();
         }
     }
-
 
 }

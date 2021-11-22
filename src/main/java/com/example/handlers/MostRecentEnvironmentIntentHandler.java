@@ -31,7 +31,7 @@ public class MostRecentEnvironmentIntentHandler implements RequestHandler, InfoR
 
     @Override
     public String getProPublica() throws IOException {
-        URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=environmentgit co");
+        URL url = new URL("https://api.propublica.org/congress/v1/bills/search.json?query=environment");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestProperty("X-API-Key", "O1ZdWmc8x27g8x05YHkc0VYKHfCBYTTTuvDAt4Kn");
@@ -47,14 +47,14 @@ public class MostRecentEnvironmentIntentHandler implements RequestHandler, InfoR
         in.close();
 
     // ***Test the following to adjust the file into proper json format***
-        String healthResults = stringBuilder.substring(107, 50183);
+        String environmentResults = stringBuilder.substring(107, 51574);
 
-        return healthResults;
+        return environmentResults;
     }
 
     @Override
     public JSONObject createObject(String text) throws IOException, JSONException {
-        return new JSONObject (text);
+        return new JSONObject(text);
     }
 
     @Override
@@ -79,6 +79,5 @@ public class MostRecentEnvironmentIntentHandler implements RequestHandler, InfoR
             e.printStackTrace();
         }
     }
-
 
 }

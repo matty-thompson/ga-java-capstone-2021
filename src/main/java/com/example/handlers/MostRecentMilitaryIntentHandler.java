@@ -48,14 +48,14 @@ public class MostRecentMilitaryIntentHandler implements RequestHandler, InfoRetr
         in.close();
 
         // ***Test the following to adjust the file into proper json format***
-        String militaryResults = stringBuilder.substring(111, 50539);
+        String militaryResults = stringBuilder.substring(111, 51682);
 
         return militaryResults;
     }
 
     @Override
     public JSONObject createObject(String text) throws IOException, JSONException {
-        return new JSONObject (text);
+        return new JSONObject(text);
     }
 
     @Override
@@ -69,6 +69,7 @@ public class MostRecentMilitaryIntentHandler implements RequestHandler, InfoRetr
         String latestMajorAction = (String) bills.getJSONArray("bills").getJSONObject(0)
                 .get("latest_major_action");
         return shortTitle + ", " + shortSummary + ", " + latestMajorActionDate + ", " + latestMajorAction;
+
     }
 
     String militaryResponse;
@@ -80,5 +81,6 @@ public class MostRecentMilitaryIntentHandler implements RequestHandler, InfoRetr
             e.printStackTrace();
         }
     }
+
 }
 
